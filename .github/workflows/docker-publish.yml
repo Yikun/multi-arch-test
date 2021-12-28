@@ -20,11 +20,22 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       -
         name: Build and push
-        id: docker_build
+        id: docker_build_x86
         uses: docker/build-push-action@v2
         with:
           push: true
+          file: ./Dockerfile-x86
           tags: yikunkero/apache-spark-github-action-image:latest
+          platform: linux/amd64
+      -
+        name: Build and push
+        id: docker_build_arm
+        uses: docker/build-push-action@v2
+        with:
+          push: true
+          file: ./Dockerfile-arm64
+          tags: yikunkero/apache-spark-github-action-image:latest
+          platform: linux/arm64
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
