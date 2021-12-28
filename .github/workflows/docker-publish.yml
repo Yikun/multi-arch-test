@@ -26,7 +26,7 @@ jobs:
           push: true
           file: ./Dockerfile-x86
           tags: yikunkero/apache-spark-github-action-image:multiarch
-          platform: linux/amd64
+          platforms: linux/amd64
       -
         name: Build and push
         id: docker_build_arm
@@ -35,7 +35,7 @@ jobs:
           push: true
           file: ./Dockerfile-arm64
           tags: yikunkero/apache-spark-github-action-image:latest
-          platform: linux/arm64
+          platforms: linux/arm64
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
