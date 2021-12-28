@@ -25,7 +25,7 @@ jobs:
         with:
           push: true
           file: ./Dockerfile-x86
-          tags: yikunkero/apache-spark-github-action-image:multiarch
+          tags: yikunkero/apache-spark-github-action-image:arch
           platforms: linux/amd64
       -
         name: Build and push
@@ -34,7 +34,7 @@ jobs:
         with:
           push: true
           file: ./Dockerfile-arm64
-          tags: yikunkero/apache-spark-github-action-image:latest
+          tags: yikunkero/apache-spark-github-action-image:arch
           platforms: linux/arm64
       -
         name: Image digest
