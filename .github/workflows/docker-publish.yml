@@ -1,4 +1,4 @@
-name: ci
+name: multi arch ci
 
 on: [pull_request]
 
@@ -25,8 +25,8 @@ jobs:
         with:
           push: true
           file: ./Dockerfile-x86
-          tags: yikunkero/apache-spark-github-action-image:latest
-          platform: linux/amd64
+          tags: yikunkero/apache-spark-github-action-image:arch
+          platforms: linux/amd64
       -
         name: Build and push
         id: docker_build_arm
@@ -34,8 +34,8 @@ jobs:
         with:
           push: true
           file: ./Dockerfile-arm64
-          tags: yikunkero/apache-spark-github-action-image:latest
-          platform: linux/arm64
+          tags: yikunkero/apache-spark-github-action-image:arch
+          platforms: linux/arm64
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
